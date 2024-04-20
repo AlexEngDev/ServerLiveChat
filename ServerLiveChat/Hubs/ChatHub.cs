@@ -8,7 +8,7 @@ namespace ServerLiveChat.Hubs
 
         public async Task JoinChat(string user)
         {
-            await Clients.All.SendAsync("UserJoin", $"{user} has joined");
+            await Clients.All.SendAsync("UserJoin", user);
         }
 
         public async Task SendMessage(string user, string message, string timestamp)
