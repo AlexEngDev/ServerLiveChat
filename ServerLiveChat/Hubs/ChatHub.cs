@@ -1,10 +1,12 @@
 ﻿using Microsoft.AspNetCore.SignalR;
 using ServerLiveChat.Models;
+using System.Collections.Generic;
 
 namespace ServerLiveChat.Hubs
 {
     public class ChatHub : Hub
     {
+
 
         public async Task JoinChat(string user)
         {
@@ -14,8 +16,10 @@ namespace ServerLiveChat.Hubs
 
         public async Task SendMessage(string user, string message, string timestamp, string latitude, string longitude)
         {
+
             DateTime dateTime = DateTime.Parse(timestamp);
             string formattedTimestamp = dateTime.ToString("yyyy-MM-dd HH:mm:ss");
+
 
             Console.WriteLine($"User: {user} Message: {message} Timestamp: {formattedTimestamp} Latitude: {latitude} Longitude: {longitude}");
 
