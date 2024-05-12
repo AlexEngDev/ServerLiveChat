@@ -11,6 +11,7 @@ namespace ServerLiveChat.Hubs
             await Clients.All.SendAsync("UserJoin", user);
         }
 
+
         public async Task SendMessage(string user, string message, string timestamp, string latitude, string longitude)
         {
             DateTime dateTime = DateTime.Parse(timestamp);
