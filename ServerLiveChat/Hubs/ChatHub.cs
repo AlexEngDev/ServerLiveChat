@@ -6,14 +6,22 @@ namespace ServerLiveChat.Hubs
     public class ChatHub : Hub
     {
 
-        public async Task JoinChat(User user)
+        public async Task JoinChat(string user)
         {
-            await Clients.All.SendAsync("ReceiveMessage", "admin", $"{user.Name} has joined");
+            await Clients.All.SendAsync("UserJoin", user);
         }
 
-        public async Task SendMessage(string user, string message)
+        public async Task SendMessage(string user, string message, string timestamp, string latitude, string longitude)
         {
-            await Clients.All.SendAsync("ReceiveMessage", user, message);
+            DateTime dateTime = DateTime.Parse(timestamp);
+            string formattedTimestamp = dateTime.ToString("yyyy-MM-dd HH:mm:ss");
+
+            Console.WriteLine($"User: {user} Message: {message} Timestamp: {formattedTimestamp} Latitude: {latitude} Longitude: {longitude}");
+
+            await Clients.All.SendAsync("ReceiveMessage", user, message, formattedTimestamp);
         }
+
+
+
     }
 }
