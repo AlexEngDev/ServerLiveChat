@@ -1,6 +1,11 @@
+using Microsoft.EntityFrameworkCore;
+using ServerLiveChat.Data;
 using ServerLiveChat.Hubs;
 
 var builder = WebApplication.CreateBuilder(args);
+
+builder.Services.AddDbContext<LiveChatDBContext>(options =>
+    options.UseSqlite(builder.Configuration.GetConnectionString("DefaultConnection")));
 
 // Add services to the container.
 builder.Services.AddSignalR();

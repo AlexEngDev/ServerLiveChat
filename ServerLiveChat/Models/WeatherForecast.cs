@@ -1,4 +1,4 @@
-namespace ServerLiveChat
+namespace ServerLiveChat.Models
 {
     public class WeatherForecast
     {
