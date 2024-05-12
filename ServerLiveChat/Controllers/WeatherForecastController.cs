@@ -1,4 +1,5 @@
 using Microsoft.AspNetCore.Mvc;
+using ServerLiveChat.Models;
 
 namespace ServerLiveChat.Controllers
 {
