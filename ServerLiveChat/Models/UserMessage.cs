@@ -9,9 +9,5 @@ namespace ServerLiveChat.Models
 
         public User User { get; set; } = null!;
 
-        public static implicit operator string(UserMessage v)
-        {
-            throw new NotImplementedException();
-        }
     }
 }
