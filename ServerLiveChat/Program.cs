@@ -1,4 +1,5 @@
 using Microsoft.EntityFrameworkCore;
+using ServerLiveChat.Controllers;
 using ServerLiveChat.Data;
 using ServerLiveChat.Hubs;
 
@@ -10,6 +11,7 @@ builder.Services.AddDbContext<LiveChatDBContext>(options =>
 // Add services to the container.
 builder.Services.AddSignalR();
 builder.Services.AddControllers();
+builder.Services.AddTransient<UserController>();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
